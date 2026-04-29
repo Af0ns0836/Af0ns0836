@@ -7,7 +7,7 @@
 
 ## 🎓 About me
 
-I am currently finishing my Master's dissertation. My main areas of interest are critical systems, cybersecurity, artificial intelligence, and game development.
+I am currently finishing my Master's degree. My main areas of interest are critical systems, cybersecurity, artificial intelligence, and game development.
 
 ## 💬Languages
 
