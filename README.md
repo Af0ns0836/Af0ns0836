@@ -25,6 +25,12 @@ I am currently finishing my Master's degree. My main areas of interest are criti
 
 ![Snake Animation](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-contribution-grid-snake.svg)
 
+## Test Cards
+
+![Stats](./profile/stats.svg)
+![Top Languages](./profile/top-langs.svg)
+![Pinned](./profile/pin-readme-tools-github-readme-stats.svg)
+
 <h2> 🚀 &nbsp;Tools I Have Used and Learned</h2>
 <table>
   <tr>
