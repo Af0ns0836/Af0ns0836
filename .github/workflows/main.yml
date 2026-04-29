@@ -1,7 +1,6 @@
 name: Generate Datas
 on:
   schedule:
-    # execute every 12 hours
     - cron: "0 */12 * * *"
   workflow_dispatch:
 
@@ -10,19 +9,23 @@ jobs:
     name: Jobs to update datas
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Generate the snake animation
+      # Step 1: Essential to prevent "Build dir does not exist"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Generate the snake animation
       - name: Generate snake animation
         uses: Platane/snk@master
         id: snake-gif
         with:
           github_user_name: Af0ns0836
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+          # Reverted to your specific version's requirements:
+          svg_out_path: dist/github-contribution-grid-snake.svg
+          gif_out_path: dist/github-contribution-grid-snake.gif
 
-      # Step 2: Deploy the generated SVG to the output branch
+      # Step 3: Deploy the generated folder
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v3.1.0 # Updated version
+        uses: crazy-max/ghaction-github-pages@v4 # Updated for Node.js 24 compatibility
         with:
           target_branch: output
           build_dir: dist
