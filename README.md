@@ -15,10 +15,14 @@ I am currently finishing my Master's degree. My main areas of interest are criti
 ![English](https://img.shields.io/badge/-🇺🇸%20English-blue?style=for-the-badge)
 
 ## 📈 My Github Stats
-<p align="left">
-  <img src="https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/stats-card.svg" width="400" />
-  <img src="https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/languages-card.svg" width="400" />
-</p>
+
+<a href="https://github.com/anuraghazra/github-readme-stats">
+  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=Af0ns0836" />
+</a>
+<a href="https://github.com/anuraghazra/convoychat">
+  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=Af0ns0836&layout=compact&langs_count=8&card_width=320" />
+</a>
+
 ![Snake Animation](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-contribution-grid-snake.svg)
 
 <h2> 🚀 &nbsp;Tools I Have Used and Learned</h2>
