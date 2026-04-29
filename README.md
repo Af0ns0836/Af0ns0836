@@ -16,20 +16,9 @@ I am currently finishing my Master's degree. My main areas of interest are criti
 
 ## 📈 My Github Stats
 
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=Af0ns0836" />
-</a>
-<a href="https://github.com/anuraghazra/convoychat">
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=Af0ns0836&layout=compact&langs_count=8&card_width=320" />
-</a>
-
-![Snake Animation](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-contribution-grid-snake.svg)
-
-## Test Cards
-
 ![Stats](./profile/stats.svg)
 ![Top Languages](./profile/top-langs.svg)
-![Pinned](./profile/pin-readme-tools-github-readme-stats.svg)
+![Snake Animation](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-contribution-grid-snake.svg)
 
 <h2> 🚀 &nbsp;Tools I Have Used and Learned</h2>
 <table>
