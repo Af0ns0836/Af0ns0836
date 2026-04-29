@@ -1,4 +1,4 @@
-name: Github Metrics
+name: Generate Datas
 on:
   schedule:
     - cron: "0 */12 * * *"
@@ -29,7 +29,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 2: Generate Detailed Metrics (including private data)
+      # Step 2: Generate Detailed Metrics
       - name: Generate GitHub Metrics
         uses: lowlighter/metrics@latest
         with:
@@ -39,22 +39,21 @@ jobs:
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Lisbon
-          # This enables the "Private Contributions" count
-          config_order: base.header, isocalendar, languages, base.activity
           plugin_isocalendar: yes
           plugin_languages: yes
           plugin_languages_sections: most-used
-          plugin_languages_details: percentage
-          # Moves the generated file to the dist folder for deployment
-          output_action: none
+          # IMPORTANT: These two lines ensure the file is created in the workspace
+          output_method: file
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 3: Move metrics to the distribution folder
       - name: Prepare distribution
         run: |
           mkdir -p dist
+          # The file is generated in the root by default
           mv github-metrics.svg dist/
 
-      # Step 4: Deploy everything (Snake + Metrics) to the 'output' branch
+      # Step 4: Deploy everything to the 'output' branch
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
