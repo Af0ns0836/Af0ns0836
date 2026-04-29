@@ -15,7 +15,7 @@ I am currently finishing my Master's dissertation. My main areas of interest are
 ![English](https://img.shields.io/badge/-🇺🇸%20English-blue?style=for-the-badge)
 
 ## 📈 My Github Stats
-![My GitHub Metrics](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-metrics.svg)
+![My GitHub Metrics](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/main/github-metrics.svg)
 ![Snake Animation](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-contribution-grid-snake.svg)
 
 <h2> 🚀 &nbsp;Tools I Have Used and Learned</h2>
