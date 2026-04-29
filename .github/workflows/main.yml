@@ -1,4 +1,4 @@
-name: Snake Contributions
+name: Github Metrics
 on:
   schedule:
     - cron: "0 */12 * * *"
@@ -17,8 +17,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Step 1: Generate the Snake Animation
       - name: Generate snake animation
-        # Switching to v3 for better data fetching
         uses: Platane/snk@v3
         id: snake-gif
         with:
@@ -27,9 +27,34 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
         env:
-          # Adding the token here helps the action fetch private contributions if needed
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Step 2: Generate Detailed Metrics (including private data)
+      - name: Generate GitHub Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          filename: github-metrics.svg
+          user: Af0ns0836
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Lisbon
+          # This enables the "Private Contributions" count
+          config_order: base.header, isocalendar, languages, base.activity
+          plugin_isocalendar: yes
+          plugin_languages: yes
+          plugin_languages_sections: most-used
+          plugin_languages_details: percentage
+          # Moves the generated file to the dist folder for deployment
+          output_action: none
+
+      # Step 3: Move metrics to the distribution folder
+      - name: Prepare distribution
+        run: |
+          mkdir -p dist
+          mv github-metrics.svg dist/
+
+      # Step 4: Deploy everything (Snake + Metrics) to the 'output' branch
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
