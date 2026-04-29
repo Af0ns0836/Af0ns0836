@@ -32,20 +32,20 @@ jobs:
       - name: Generate Stats Card
         uses: lowlighter/metrics@latest
         with:
+          filename: ./stats-card.svg  # Added ./ to force it into the local workspace root
+          output_action: none
+          config_output: flat
           token: ${{ secrets.GITHUB_TOKEN }}
-          filename: stats-card.svg
           user: Af0ns0836
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Lisbon
-          config_output: flat
-          output_action: none
 
       # 3. Languages Card (No Header, just the Language data)
       - name: Generate Languages Card
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          filename: languages-card.svg
+          filename: ./languages-card.svg
           user: Af0ns0836
           base: "" # Removed header to create a standalone card
           plugin_languages: yes
