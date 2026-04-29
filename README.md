@@ -15,10 +15,8 @@ I am currently finishing my Master's dissertation. My main areas of interest are
 ![English](https://img.shields.io/badge/-🇺🇸%20English-blue?style=for-the-badge)
 
 ## 📈 My Github Stats
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=Af0ns0836&count_private=true&show_icons=true&theme=dracula&hide=contribs&hide_border=true)
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Af0ns0836&layout=compact&theme=dracula&hide_border=true)](https://github.com/anuraghazra/github-readme-stats)
-
-![github contribution grid snake animation](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-contribution-grid-snake.svg)
+![My GitHub Metrics](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-metrics.svg)
+![Snake Animation](https://raw.githubusercontent.com/Af0ns0836/Af0ns0836/output/github-contribution-grid-snake.svg)
 
 <h2> 🚀 &nbsp;Tools I Have Used and Learned</h2>
 <table>
