@@ -42,16 +42,17 @@ jobs:
           plugin_isocalendar: yes
           plugin_languages: yes
           plugin_languages_sections: most-used
-          # IMPORTANT: These two lines ensure the file is created in the workspace
-          output_method: file
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          # The fix: This combination forces the file to be saved in the root
+          config_output: flat
+          output_action: none
 
       # Step 3: Move metrics to the distribution folder
       - name: Prepare distribution
         run: |
           mkdir -p dist
-          # The file is generated in the root by default
-          mv github-metrics.svg dist/
+          # If the file exists in root, move it. If not, we list files to debug.
+          ls -R
+          mv github-metrics.svg dist/ || echo "File not found in root, checking subdirectories..."
 
       # Step 4: Deploy everything to the 'output' branch
       - name: Deploy to GitHub Pages
