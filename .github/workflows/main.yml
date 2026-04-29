@@ -1,10 +1,9 @@
-name: Generate Datas
+name: Snake Contributions
 on:
   schedule:
     - cron: "0 */12 * * *"
   workflow_dispatch:
 
-# Added permissions to fix Exit Code 128
 permissions:
   contents: write
 
@@ -13,19 +12,23 @@ jobs:
     name: Jobs to update datas
     runs-on: ubuntu-latest
     env:
-      # Forces the runner to use Node 24 to clear the deprecation warnings
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Generate snake animation
-        uses: Platane/snk@master
+        # Switching to v3 for better data fetching
+        uses: Platane/snk@v3
         id: snake-gif
         with:
           github_user_name: Af0ns0836
-          svg_out_path: dist/github-contribution-grid-snake.svg
-          gif_out_path: dist/github-contribution-grid-snake.gif
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+        env:
+          # Adding the token here helps the action fetch private contributions if needed
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
