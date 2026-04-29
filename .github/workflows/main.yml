@@ -17,10 +17,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 1: Generate the Snake Animation
+      # 1. The Snake Animation
       - name: Generate snake animation
         uses: Platane/snk@v3
-        id: snake-gif
         with:
           github_user_name: Af0ns0836
           outputs: |
@@ -29,33 +28,43 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Step 2: Generate Detailed Metrics
-      - name: Generate GitHub Metrics
+      # 2. The "Stats Card" (mimics your reference image 88dc7c)
+      - name: Generate Stats Card
         uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          filename: github-metrics.svg
+          filename: stats-card.svg
           user: Af0ns0836
           template: classic
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Lisbon
-          plugin_isocalendar: yes
-          plugin_languages: yes
-          plugin_languages_sections: most-used
-          # The fix: This combination forces the file to be saved in the root
           config_output: flat
           output_action: none
 
-      # Step 3: Move metrics to the distribution folder
+      # 3. The "Languages Card" (mimics your reference image 88d99d)
+      - name: Generate Languages Card
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          filename: languages-card.svg
+          user: Af0ns0836
+          template: classic
+          base: "" # This hides the header so it's just the languages
+          plugin_languages: yes
+          plugin_languages_type: percentage
+          plugin_languages_sections: most-used
+          plugin_languages_details: percentage
+          config_output: flat
+          output_action: none
+
+      # 4. Bundle everything into the output branch
       - name: Prepare distribution
         run: |
           mkdir -p dist
-          # If the file exists in root, move it. If not, we list files to debug.
-          ls -R
-          mv github-metrics.svg dist/ || echo "File not found in root, checking subdirectories..."
+          mv stats-card.svg dist/ || echo "Stats missing"
+          mv languages-card.svg dist/ || echo "Langs missing"
 
-      # Step 4: Deploy everything to the 'output' branch
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
